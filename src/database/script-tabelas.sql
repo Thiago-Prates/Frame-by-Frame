@@ -32,9 +32,11 @@ luminosidade int,
 fkEstudio int,
 foreign key (fkEstudio) references estudio(idEstudio));
 
-CREATE TABLE alerta (
-idAlerta INT PRIMARY KEY AUTO_INCREMENT,
-titulo VARCHAR(45),
-fk_medias INT,
-FOREIGN KEY (fk_medidas) REFERENCES medidas(idMedidas)
-);
+
+INSERT INTO empresa (razao_social, cnpj, codigoAcesso) VALUES
+('LumiTech Monitoramento LTDA', '12345678000190', 'LUMI1234'),
+('FotoSensor Pro Serviços', '23456789000101', 'FSENSOR2024'),
+('StudioBright Sistemas', '34567890000112', 'STB4567'),
+('LightTrack Soluções', '45678901000123', 'LT2025MON'),
+('ClariView Tecnologia', '56789012000134', 'CLARIV2025'),
+('ViewFlash TechStar', '12345678912458', 'LUAS7YQ20P');
