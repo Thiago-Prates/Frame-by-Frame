@@ -30,6 +30,8 @@
 
 <body>
 
+  
+
     <div class="janela">
         <div class="header-left">
             <h1>AquaTech</h1>
@@ -69,7 +71,7 @@
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
-            <div id="graficos">
+              <canvas id="meuGrafico" width="400" height="200"></canvas>
             </div>
         </div>
     </div>
@@ -80,11 +82,16 @@
 </html>
 
 <script>
+
+  let myChart = null;
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico();
+    window.onload = obterDadosGrafico()
+      setInterval(obterDadosGrafico(), 10000);
+;
 
     function obterDadosGrafico(luminosidade) {
 
@@ -128,13 +135,16 @@ var dados = {
 
 
 
-for (i = resposta.length - 1; i >= 0; i--) {
+for (let i = 0; i < resposta.length; i++) {
   var registro = resposta[i];
-  dados.labels.push(registro.horario);
-  dados.datasets[0].data.push(registro['luminosidade']);
+  dados.labels.push(`Ponto ${i + 1}`);
+  dados.datasets[0].data.push(registro.luminosidade);
 }
 
-myChart = destroyChart(myChart);
+
+
+const ctx = document.getElementById('meuGrafico').getContext('2d');
+
 
 
 
@@ -145,8 +155,8 @@ window.myChart = new Chart(ctx, {
     datasets: [{
       label: 'luminosidade',
       data: dados.datasets[0].data,
-      backgroundColor: 'navy',
-      borderColor: 'navy',
+      backgroundColor: 'white',
+      borderColor: 'white',
       borderWidth: 3
     }]
   },
