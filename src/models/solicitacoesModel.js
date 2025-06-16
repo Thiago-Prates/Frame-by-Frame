@@ -11,6 +11,26 @@ function exibirsolicitacoes(idempresa) {
     return database.executar(instrucaoSql);
 }
 
+function aceitar(idusuario) {
+
+    var instrucaoSql = `    
+    update usuario set permissao = 1 where idUsuario = ${idusuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function recusar(idusuario) {
+
+    var instrucaoSql = `    
+    delete from usuario where idUsuario = ${idusuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     exibirsolicitacoes,
+    aceitar,
+    recusar,
 };
