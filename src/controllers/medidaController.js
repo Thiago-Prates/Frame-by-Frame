@@ -30,10 +30,11 @@ function inserirarduino() {
 function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
+    var randLuminosidade = req.params.randLuminosidade;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`Recuperando as ultimas ${limite_linhas, randLuminosidade } medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -49,11 +50,11 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var randLuminosidade = req.params.randLuminosidade;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
