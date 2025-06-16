@@ -70,9 +70,9 @@ const serial = async (valoresSensorLuminosidade) => {
     let poolBancoDados = mysql.createPool({
         host: '127.0.0.1',
         user: 'aluno',
-        password: 'Sptech#2024',
-        database: 'testemed',
-        port: 3307
+        password: 'sptech',
+        database: 'FrameByFrame',
+        port: 3306
     }).promise();
 
     // Lista as portas seriais disponíveis e procura pelo Arduino
@@ -109,10 +109,10 @@ const serial = async (valoresSensorLuminosidade) => {
         valoresSensorLuminosidade.push(luminosidade);
 
         if (HABILITAR_OPERACAO_INSERIR) {
-            const fksensor = 1; // Ajuste conforme o id do sensor no banco
+            const fkEstudio = 1; // Ajuste conforme o id do sensor no banco
             await poolBancoDados.execute(
-                "INSERT INTO registro (luminosidade, fksensor, dtregistro) VALUES (?, ?, ?)",
-                [luminosidade, fksensor, dtregistro]
+                "INSERT INTO medidas (luminosidade, fkEstudio) VALUES (?, ?)",
+                [luminosidade, fkEstudio]
             );
             console.log("Valor de luminosidade inserido no banco:", luminosidade);
         }
