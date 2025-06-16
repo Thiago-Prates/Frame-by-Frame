@@ -86,6 +86,31 @@
 
 <script>
 
+    function logar() {
+        var emailVar = email_input.value
+        var senhaVar = senha_input.value
+
+        fetch(`/empresa/logar/${emailVar}/${senhaVar}`, {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((resposta2) => {
+                    if (resposta2.length == 0) {
+                        alert("Email ou senha inválidos")
+                    } else {
+                        if (resposta2[0].permissao == 0) {
+                            alert("Sinto muito, sua solicitação ainda não foi aprovada, tente novamente mais tarde")
+                        } else {
+                            entrar()
+                        }
+                        console.log(resposta2)
+                    }
+                })
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
 
     function entrar() {
         aguardar();

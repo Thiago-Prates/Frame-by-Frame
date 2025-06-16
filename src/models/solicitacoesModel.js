@@ -29,8 +29,17 @@ function recusar(idusuario) {
     return database.executar(instrucaoSql);
 }
 
+function logar(email, senha) {
+    var instrucaoSql = `
+    select * from usuario 
+    where email = '${email}' and senha = '${senha}';
+    `
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     exibirsolicitacoes,
     aceitar,
     recusar,
+    logar,
 };

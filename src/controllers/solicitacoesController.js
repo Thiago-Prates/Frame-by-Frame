@@ -24,8 +24,18 @@ function recusar(req, res) {
 	});
 }
 
+function logar(req, res) {
+    var email = req.params.email;
+    var senha = req.params.senha;
+
+    solicitacoesModel.logar(email, senha).then((resultado) => {
+        res.status(201).json(resultado);
+    });
+}
+
 module.exports = {
   exibirsolicitacoes,
   aceitar,
   recusar,
+  logar,
 };

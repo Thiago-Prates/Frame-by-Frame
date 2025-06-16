@@ -52,7 +52,7 @@ app.listen(PORTA_APP, function () {
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
 
-
+/*
 // Importa bibliotecas necessárias
 const serialport = require('serialport');
 const mysql = require('mysql2');
@@ -149,4 +149,4 @@ const servidor = (valoresLuminosidade) => {
     await serial(valoresLuminosidade);
     servidor(valoresLuminosidade);
 })();
-
+*/

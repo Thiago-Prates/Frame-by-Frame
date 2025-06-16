@@ -11,8 +11,8 @@ router.post("/aceitar", function (req, res) {
     solicitacoesController.aceitar(req, res);
 })
 
-router.post("/recusar", function (req, res) {
-    solicitacoesController.recusar(req, res);
+router.get("/logar/:email/:senha", function (req, res) {
+    solicitacoesController.logar(req, res);
 })
 
 module.exports = router;
