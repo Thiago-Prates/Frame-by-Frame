@@ -1,6 +1,5 @@
 create database FrameByFrame;
-use FrameByFrame;
-drop database FrameByFrame;
+use FrameByFrame;""
 
 create table empresa (
 idEmpresa int primary key auto_increment,
@@ -39,3 +38,7 @@ INSERT INTO empresa (razao_social, cnpj, codigoAcesso) VALUES
 ('LightTrack Soluções', '45678901000123', 'LT2025MON'),
 ('ClariView Tecnologia', '56789012000134', 'CLARIV2025'),
 ('ViewFlash TechStar', '12345678912458', 'LUAS7YQ20P');
+
+insert into estudio (nome_estudio,fkEmpresa) VALUES
+('FlashBack', 1);
+
