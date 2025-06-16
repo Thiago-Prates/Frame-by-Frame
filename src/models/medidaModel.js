@@ -1,6 +1,19 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+
+function inserirarduino(randLuminosidade) {
+    
+    var instrucaoSql = `Insert into medidas (luminosidade, fkEstudio) values
+                        ('${randLuminosidade}', 1);`
+
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+
+function buscarUltimasMedidas(limite_linhas) {
 
     var instrucaoSql = `SELECT 
         dht11_temperatura as temperatura, 
@@ -31,5 +44,6 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    inserirarduino
 }
