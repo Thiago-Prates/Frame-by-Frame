@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.container_cards_sol{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap:20px 
+}
+
+.card_sol{
+    padding: 20px;
+    width: 45%;
+    border: 2px solid black;
+}
+
+.aceitar_sol {
+    border: none;
+    font-weight: 600;
+   font-family: "Bricolage Grotesque", sans-serif;
+    background-color: rgb(152, 255, 152);
+    padding: 5px;
+}
+
+.negar_sol {
+    border: none;
+    font-weight: 600;
+   font-family: "Bricolage Grotesque", sans-serif;
+    background-color: rgb(255, 152, 152);
+    padding: 5px;
+}
