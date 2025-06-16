@@ -1,6 +1,5 @@
 create database FrameByFrame;
 use FrameByFrame;
-drop database FrameByFrame;
 
 create table empresa (
 idEmpresa int primary key auto_increment,
