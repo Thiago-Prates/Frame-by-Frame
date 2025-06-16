@@ -114,6 +114,55 @@
   font-weight: 800;
 }
 
+
+.container_importancia{
+width: 40vw;
+margin: auto;
+height: auto;
+margin-bottom: 5%;
+margin-top: 5%;
+position: relative;
+background-color: #ffffff;
+padding: 16px 16px 80px 16px;
+border:3px solid rgba(139, 69, 19, 0.073);
+}
+
+
+.conteudo{
+  background-color: #ffefef;
+  height: 100%;
+  text-align: justify;
+  padding: 50px;
+}
+
+.conteudo span {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+
+.container_importancia::before,
+.container_importancia::after{
+    content: "";
+    position: absolute;
+    height: 35px;
+    width: 110px;
+    transform: rotate(-40deg);
+}
+
+.container_importancia::before{
+    top: 3px;
+    left: -40px;
+    background-color: 	#8d0000d6;
+}
+
+.container_importancia::after{
+    bottom: 3px;
+    right: -40px;
+    background-color: 	#000000b6;
+}
+
 /* MISSÃO VISÃO VALORES */
 
 .social {
@@ -148,22 +197,49 @@
 
 /* FOOTER */
 
-.footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
-}
-
-.footer .container {
-  justify-content: center;
+footer {
+  overflow: hidden;
+  height: 30vh;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 20px 0;
   text-align: center;
 }
 
-.footer .container .version {
-  font-size: 12px;
+.linha_rodape{
+  width: 100%;
+  background-color: #8d0000;
+  height: 4%;
 }
+
+.logo_rodape{
+  padding: 20px 0 ;
+  height: 70%;
+  width: 100%;
+}
+.logo_rodape img{
+  height: 100%;
+}
+
+
+.descricao_rodape p{
+    border-bottom: 4px solid black;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    
+}
+
+.final_rodape{
+  background-color: #8d0000;
+  font-weight: 700;
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
 
 /* LOGIN */
 
