@@ -26,14 +26,16 @@
             method: "GET",
         })
             .then(function (resposta) {
+                solicitacoes_caixa.innerHTML = ""
                 resposta.json().then((resposta2) => {
+                    console.log(resposta2)
                     for (let i = 0; i < resposta2.length; i++) {
                         solicitacoes_caixa.innerHTML += `
                         <div class="card_sol">
                             <p>O usuário ${resposta2[i].nome} portador do e-mail ${resposta2[i].email} solicitou o acesso ao sistema.</p>
                             <div class="btn_sol">
-                                <button onclick="aceitar" class="aceitar_sol">ACEITAR</button>
-                                <button onclick="negar" class="negar_sol">NEGAR</button>
+                                <button onclick="aceitar(${resposta2[i].idUsuario})" class="aceitar_sol">ACEITAR</button>
+                                <button onclick="negar(${resposta2[i].idUsuario})" class="negar_sol">NEGAR</button>
                             </div>
                         </div>
                         `
@@ -46,4 +48,46 @@
     }
 
     exibirsolicitacoes()
+
+    function aceitar(id_usuario) {
+        var iduserVar = id_usuario
+
+        fetch("/solicitacoes/aceitar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuario: iduserVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                exibirsolicitacoes()
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function negar(id_usuario) {
+        var iduserVar = id_usuario
+
+        fetch("/solicitacoes/recusar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuario: iduserVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                exibirsolicitacoes()
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
 </script>

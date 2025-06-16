@@ -8,6 +8,24 @@ function exibirsolicitacoes(req, res) {
   });
 }
 
+function aceitar(req, res) {
+	var idusuario = req.body.idUsuario;
+
+	solicitacoesModel.aceitar(idusuario).then((resultado) => {
+		res.status(201).json(resultado);
+	});
+}
+
+function recusar(req, res) {
+	var idusuario = req.body.idUsuario;
+
+	solicitacoesModel.recusar(idusuario).then((resultado) => {
+		res.status(201).json(resultado);
+	});
+}
+
 module.exports = {
-    exibirsolicitacoes,
+  exibirsolicitacoes,
+  aceitar,
+  recusar,
 };
