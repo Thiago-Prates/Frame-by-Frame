@@ -111,7 +111,6 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var codigoVar = codigo_input.value;
-    var idEmpresaVincular
 
     // Verificando se há algum campo em branco
     if (
@@ -156,7 +155,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        
       }),
     })
       .then(function (resposta) {
@@ -197,7 +196,7 @@
             listaEmpresasCadastradas.push(empresa);
 
             console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+            console.log(listaEmpresasCadastradas[0].codigoAcesso)
           });
         });
       })

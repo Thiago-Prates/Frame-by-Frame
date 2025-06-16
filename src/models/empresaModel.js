@@ -1,13 +1,13 @@
 var database = require("../database/config");
 
 function buscarPorId(id) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE id = '${id}'`;
+  var instrucaoSql = `SELECT * FROM empresa WHERE idEmpresa = '${id}'`;
 
   return database.executar(instrucaoSql);
 }
 
 function listar() {
-  var instrucaoSql = `SELECT id, razao_social, cnpj, codigo_ativacao FROM empresa`;
+  var instrucaoSql = `SELECT idEmpresa, razao_social, cnpj, codigoAcesso FROM empresa`;
 
   return database.executar(instrucaoSql);
 }

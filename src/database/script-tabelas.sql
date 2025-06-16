@@ -13,7 +13,6 @@ create table usuario
 nome VARCHAR(50),
 email VARCHAR(50),
 senha VARCHAR(50),
-cpf char(11),
 permissao tinyint,
 fkEmpresa int,
 nivel tinyint,
