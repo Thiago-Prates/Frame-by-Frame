@@ -57,6 +57,7 @@
   color: #8d0000;
   width: fit-content;
   font-weight: 600;
+  
 }
 
 .header h1 {
@@ -379,6 +380,13 @@ input {
   background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
   background-size: cover;
   animation-iteration-count: infinite;
+}
+.logo img {
+  height: 120px;
+  width: 120px;
+  margin-top: 17px;
+  margin-left: 40px;
+ 
 }
 
 @keyframes bell {
