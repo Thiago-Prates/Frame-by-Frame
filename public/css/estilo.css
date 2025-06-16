@@ -150,7 +150,7 @@
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  background-color: #ac0000;
   height: 150px;
   color: #fff;
   display: flex;
@@ -170,14 +170,14 @@
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-color: #8d0000;
   background-size: cover;
 }
 
 .login .container {
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 550px;
 }
 
 .card {
@@ -187,7 +187,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #8d0000;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
