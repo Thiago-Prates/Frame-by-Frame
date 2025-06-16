@@ -2,8 +2,8 @@ create database FrameByFrame;
 use FrameByFrame;
 drop database FrameByFrame;
 
-create table empresa 
-(idEmpresa int primary key auto_increment,
+create table empresa (
+idEmpresa int primary key auto_increment,
 razao_social varchar(50),
 cnpj char(14),	
 codigoAcesso varchar(50));
@@ -16,34 +16,25 @@ senha VARCHAR(50),
 cpf char(11),
 permissao tinyint,
 fkEmpresa int,
-nivel int,
-constraint chkNivel check (nivel = 0 or 1),
+nivel tinyint,
 foreign key (fkEmpresa) references empresa(idEmpresa));
 
-CREATE TABLE alerta (
-idAlerta INT PRIMARY KEY AUTO_INCREMENT,
-titulo VARCHAR(100),
-descricao VARCHAR(150),
-fk_usuario INT,
-FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
-);
-
-
-create table estudio 
-(idEstudio int primary key auto_increment,
+create table estudio (
+idEstudio int primary key auto_increment,
 nome_estudio varchar(50),
 fkEmpresa int,
 foreign key (fkEmpresa) references empresa(idEmpresa));
 
 
-create table fotometro 
-(idFotometro int primary key auto_increment,
+create table medidas (
+idmedidas int primary key auto_increment,
 luminosidade int,
-temperaturaCor int,
-tipoLuz varchar(45),
-ModificadoresLuz varchar(45),
 fkEstudio int,
 foreign key (fkEstudio) references estudio(idEstudio));
 
-
-
+CREATE TABLE alerta (
+idAlerta INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(45),
+fk_medias INT,
+FOREIGN KEY (fk_medidas) REFERENCES medidas(idMedidas)
+);
